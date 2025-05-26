@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :passwords, param: :token
   root "products#index"
 
-  resources :products
+  resources :products do
+    resources :subscribers, only: [ :create ]
+  end
 
 end
